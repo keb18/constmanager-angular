@@ -17,10 +17,12 @@
       <th>{{ project.name }}</th>
       <th>{{ project.created }}</th>
       <td class="text-center">
-        <a href="/dashboard/<%= currentCompany._id %>/project/<%= project._id %>">
-          <i class="fa fa-folder-open" aria-hidden="true"></i>
+        <a>
+          <i (click)="onSelect(project)" class="fa fa-folder-open" aria-hidden="true"></i>
         </a>
       </td>
     </tr>
   </tbody>
 </table>
+
+<app-project-detail [project]="selectedProject"></app-project-detail>
