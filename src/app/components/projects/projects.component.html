@@ -1,0 +1,26 @@
+<h2>Current projects</h2>
+
+<table class="table table-hover text-center table-sm">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Project number</th>
+      <th>Project name</th>
+      <th>Date created</th>
+      <th>Open</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects; let i = index">
+      <th>{{ i+1 }}</th>
+      <th>{{ project.number }}</th>
+      <th>{{ project.name }}</th>
+      <th>{{ project.created }}</th>
+      <td class="text-center">
+        <a href="/dashboard/<%= currentCompany._id %>/project/<%= project._id %>">
+          <i class="fa fa-folder-open" aria-hidden="true"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
