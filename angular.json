@@ -21,9 +21,19 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./src/assets/plugins/css/sb-admin.min.css",
+              "src/styles.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "./src/assets/plugins/js/jquery.easing.min.js",
+              "./src/assets/plugins/js/sb-admin.min.js"
+            ]
           },
           "configurations": {
             "production": {
