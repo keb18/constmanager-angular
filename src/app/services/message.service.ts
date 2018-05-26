@@ -8,8 +8,11 @@ export class MessageService {
 
   add(message: string) {
     this.messages.push(message);
+    // Remove message after 5 seconds
+    setTimeout(() => { this.messages = []; }, 5000);
   }
 
+  // button to clear the message
   clear() {
     this.messages = [];
   }
