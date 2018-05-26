@@ -25,8 +25,8 @@
         </a>
       </li>
 
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projects">
-        <a class="nav-link" href="/dashboard/<%= currentCompany._id %>/projects">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projects" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" href="#" routerLink="/projects">
           <i class="fa fa-fw fa-building"></i>
           <span class="nav-link-text">Projects</span>
         </a>

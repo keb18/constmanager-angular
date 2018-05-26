@@ -4,13 +4,16 @@
 
 <div class="content-wrapper">
   <div class="container-fluid">
-      <app-messages></app-messages>
+    <div class="container setHeight">
+        <app-messages></app-messages>
+    </div>
+      
 <!-- =========================== Content =========================== -->
     <div style="text-align:center">
       <h3>
         {{ title }}
       </h3>
-      <app-projects></app-projects>
+      <router-outlet></router-outlet>
       
 <!-- =========================== Content =========================== -->
 
