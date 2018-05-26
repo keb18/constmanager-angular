@@ -34,7 +34,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-/assets
+/src/assets
 
 # e2e
 /e2e/*.js
