@@ -1,24 +1,32 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-header></app-header>
+<ng-container *ngIf="!checkPath; then navRetained; else navHidden">
+
+</ng-container>
+
+<ng-template #navRetained>
 <!-- =========================== Header =========================== -->
-
-<div class="content-wrapper">
-  <div class="container-fluid">
-    <div class="container setHeight">
+  <app-header></app-header>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Add messages container -->
+      <div class="container setHeight">
         <app-messages></app-messages>
-    </div>
-      
+      </div>
 <!-- =========================== Content =========================== -->
-    <div style="text-align:center">
-      <h3>
-        {{ title }}
-      </h3>
+      <div style="text-align:center">
+        <h3>
+          {{ title }}
+        </h3>
+      </div>
+
       <router-outlet></router-outlet>
-      
-<!-- =========================== Content =========================== -->
 
+    </div>
   </div>
-</div>
-
 <!-- =========================== Footer =========================== -->
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</ng-template>
+
+
+<ng-template #navHidden>
+  <router-outlet></router-outlet>
+</ng-template>
