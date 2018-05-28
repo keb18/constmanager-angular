@@ -1,7 +1,7 @@
 export class Project {
   _id: string;
-  name: string;
-  number: string;
-  description: string;
-  created: string;
+  projectName: string;
+  projectNumber: string;
+  projectDescription: string;
+  projectCreated: string;
 }

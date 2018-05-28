@@ -2,7 +2,7 @@
   "name": "constmanager-angular",
   "version": "0.0.0",
   "description": "Web app for project management for the construction industry",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -26,7 +26,6 @@
     "architecture"
   ],
   "author": "Ahmed Buaishi <abuaishi@gmail.com>",
-  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/keb18/constmanager-angular/issues"
   },
@@ -51,6 +50,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "mongoose": "^5.1.2",
+    "mongoose-paginate": "^5.0.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.0",

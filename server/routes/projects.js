@@ -12,8 +12,8 @@ let mid = require("../middleware");
 
 // INDEX - SHOW PROJECTS PAGE
 router.get('/:companyId/projects',
-  mid.isLoggedIn,
-  mid.disableCache,
+  // mid.isLoggedIn,
+  // mid.disableCache,
   // mid.checkCompanyAuth,
   function (req, res) {
     // console.log(req.user);
@@ -22,11 +22,8 @@ router.get('/:companyId/projects',
       if (err) {
         console.log(err);
       } else {
-        // console.log(req.user);
-        res.render('project/projects', {
-          projects: foundCompany.projects,
-          currentCompany: foundCompany
-        });
+        // Send the company projects to the authenticated user
+        return res.json(foundCompany.projects)
       }
     });
   });
@@ -34,8 +31,8 @@ router.get('/:companyId/projects',
 
 // CREATE NEW PROJECT
 router.post('/:companyId/project',
-  mid.isLoggedIn,
-  mid.disableCache,
+  // mid.isLoggedIn,
+  // mid.disableCache,
   mid.getCompany,
   function (req, res) {
     // Create a new project and add to the db
@@ -59,6 +56,8 @@ router.post('/:companyId/project',
       }
     });
   });
+
+  
 // router.post('/:companyId/project',
 //   mid.isLoggedIn,
 //   mid.disableCache,

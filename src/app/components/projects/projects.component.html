@@ -1,28 +1,99 @@
 <h2>Current projects</h2>
 
-<table class="table table-hover text-center table-sm">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Project number</th>
-      <th>Project name</th>
-      <th>Date created</th>
-      <th>Open</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let project of projects; let i = index">
-      <th>{{ i+1 }}</th>
-      <th>{{ project.number }}</th>
-      <th>{{ project.name }}</th>
-      <th>{{ project.created }}</th>
-      <td class="text-center">
-        <a>
-          <i (click)="onSelect(project)" class="fa fa-folder-open" aria-hidden="true"></i>
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
-<app-project-detail [project]="selectedProject"></app-project-detail>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/dashboard">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Projects</li>
+</ol>
+
+<!-- ========================== CONTENT =============================== -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Project</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+    <table class="table table-hover text-center table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Project number</th>
+          <th>Project name</th>
+          <th>Date created</th>
+          <th>Open</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects; let i = index">
+          <th>{{ i+1 }}</th>
+          <th>{{ project.projectNumber }}</th>
+          <th>{{ project.projectName }}</th>
+          <th>{{ project.projectCreated }}</th>
+          <td class="text-center">
+            <a routerLink="/project/{{project._id}}">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <form class="tablist-views" action="/dashboard/<%= currentCompany._id %>/project" method="POST">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputProjectName">Project name</label>
+          <input type="text" class="form-control" name="project[projectName]" placeholder="Hester House">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="inputProjectNumber">Project number</label>
+          <input type="text" class="form-control" name="project[projectNumber]" placeholder="2/5554-3">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" placeholder="1234 Main St">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputProjectCountry">Country</label>
+          <input type="text" class="form-control" name="project[projectCountry]" placeholder="country">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputProjectCity">City</label>
+          <input type="text" class="form-control" name="project[projectCity]" placeholder="project city">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="inputProjectZip">Zip code</label>
+          <input type="text" class="form-control" name="project[projectZip]" placeholder="project zip">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputDescription">Description</label>
+        <input type="text" class="form-control" name="project[projectDescription]" placeholder="description">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit!</button>
+    </form>
+  </div>
+</div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+</div>

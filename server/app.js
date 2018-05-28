@@ -2,6 +2,7 @@ const express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
+    mongoosePaginate = require('mongoose-paginate'),
     passport = require('passport'),
     LocalStrategy = require('passport-local');
 
@@ -33,7 +34,17 @@ passport.deserializeUser(User.deserializeUser());
 
 
 // Connect to the mongodb company server
-mongoose.connect('mongodb://localhost/main_database');
+mongoose.connect('mongodb://localhost/main_database')
+    .then(() => { console.log('Successfully connected to the MongoDB database.') })
+    .catch(() => { console.log('Error connecting to the MongoDB database') });
+
+// CORS configuration
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    next();
+});
 
 // Make public folder accessible by default
 app.use(express.static(__dirname + '/public'));
@@ -50,7 +61,7 @@ app.set('view engine', 'ejs');
 app.use(function (req, res, next) {
     // Pass current logged user to all routes
     res.locals.currentUser = req.user;
-    
+
     // res.locals.error = req.flash("error");
     // res.locals.success = req.flash("success");
     next(); // move to the actual code

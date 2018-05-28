@@ -7,12 +7,22 @@ export class MessageService {
   messages: string[] = [];
 
   add(message: string) {
-    this.messages.push(message);
-    // Remove message after 5 seconds
-    setTimeout(() => { this.messages = []; }, 5000);
+    if (this.messages === []) {
+      this.sendMessage(message);
+    } else {
+      this.messages = [];
+      this.sendMessage(message);
+    }
   }
 
-  // button to clear the message
+  // push message function
+  sendMessage(message) {
+    this.messages.push(message);
+      // Remove message after 5 seconds
+      setTimeout(() => { this.messages = []; }, 5000);
+  }
+
+  // clear the message function
   clear() {
     this.messages = [];
   }

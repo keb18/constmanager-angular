@@ -8,8 +8,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-        <a class="nav-link" href="/dashboard/<%= currentCompany._id %>">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" href="#" routerLink="/dashboard">
           <i class="fa fa-fw fa-th-list"></i>
           <span class="nav-link-text">Dashboard</span>
         </a>
